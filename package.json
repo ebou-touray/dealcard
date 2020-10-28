@@ -1,0 +1,16 @@
+{
+  "name": "bc.fi-deal-card",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://gitlab.com/phz4/bc.fi-deal-card.git",
+  "author": "bslzz <bishalkoid@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
