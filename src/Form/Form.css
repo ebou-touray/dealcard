@@ -1,0 +1,25 @@
+.date-area {
+    background-color: green;
+ /*    display: flex;
+    flex-direction: column; */
+}
+
+.information-area {
+    background-color: pink;
+   /*  display: flex;
+    flex-direction: column; */
+   
+}
+
+.subcontractor-area {
+    background-color: tomato;
+ /*    display: flex;
+    flex-direction: column; */
+}
+
+form {
+    margin: 2rem;
+    display: grid;
+  
+}
+
