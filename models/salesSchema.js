@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const SalesSchema = new mongoose.Schema(
   {
     date: {
-      type: date.now(),
+      type: Date,
+      default: Date.now(),
     },
     salesman: {
       type: String,
@@ -11,29 +12,35 @@ const SalesSchema = new mongoose.Schema(
     },
     consultantName: {
       type: String,
+      required: true,
     },
     broker: {
       type: String,
+      required: true,
     },
     endCustomer: {
       type: String,
+      required: true,
     },
     price: {
       type: Number,
+      required: true,
     },
     allocation: {
       type: Number,
+      required: true,
     },
     paymentTerms: {
       type: String,
+      required: true,
     },
     otherTerms: {
       type: String,
     },
     startingDate: {
-      type: String,
+      type: Date,
+      default: Date.now(),
     },
-
     duration: {
       type: Number,
     },
@@ -41,7 +48,7 @@ const SalesSchema = new mongoose.Schema(
       type: String,
     },
 
-    subcontractorName: {
+    subContractorName: {
       type: String,
     },
     price: {
