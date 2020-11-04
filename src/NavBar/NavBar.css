@@ -1,0 +1,20 @@
+.navBar {
+    background-color: thistle;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60px;
+}
+
+/* .add {
+    margin-top: 20px;
+  
+} */
+
+.search-input {
+    padding: 4px;
+    border-radius: 3px;
+    margin-left: 5px;
+    border: 1px solid black;
+}

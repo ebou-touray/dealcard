@@ -2,24 +2,11 @@
     background-color: rgb(254, 240, 255);
     border: 1px solid black;
     padding: 1rem;
- /*    display: flex;
-    flex-direction: column; */
 }
 
-.information-area {
+.information-area, .subcontractor-area {
     background-color: rgb(253, 244, 253);
     border: 1px solid black
-    
-   /*  display: flex;
-    flex-direction: column; */
-   
-}
-
-.subcontractor-area {
-    background-color: rgb(252, 240, 251);
-    border: 1px solid black
- /*    display: flex;
-    flex-direction: column; */
 }
 
 form {
@@ -33,5 +20,12 @@ form {
 .send {
     margin-top: 2rem;
     width: 50px;
+}
 
+.form-group {
+    margin: 10px 0;
+}
+
+input, textarea {
+    margin-left: 10px;
 }
