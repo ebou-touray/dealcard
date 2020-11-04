@@ -20,6 +20,8 @@ const Form = () => {
         otherInfo: ''
 
     })
+    const [checkbox, setCheckbox] = useState(false);
+
     let {
         date,
         salesman,
@@ -38,21 +40,11 @@ const Form = () => {
         otherInfo,
     } = newCard;
 
+    const checkboxHandler = () => {
+        setCheckbox(!checkbox)
+    };
+
     date = new Date().toLocaleDateString("en-GB")
-
-
-    // enables the subcontractor info area if checkbox is checked
-    // does not work properly at the moment
-    /*     const checkHandler = () => {
-            let checkBox = document.getElementById('contactPerson');
-            let x = document.getElementById('subcontractor-area')
-            if (checkBox.checked) {
-                console.log('checked')
-                x.querySelector('.subContractorName').disabled = false;
-            } else {
-                x.querySelector('.subContractorName').disabled = true;
-            }
-        } */
 
     const changeValueHandler = (e) => {
         setNewCard({
@@ -75,8 +67,6 @@ const Form = () => {
                 console.log(error)
             })
     }
-
-
 
     return (
         <div>
@@ -108,7 +98,7 @@ const Form = () => {
                         <input type="number" step=".01" value={price} name="price" onChange={changeValueHandler} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="allocation">Allocation (% * </label>
+                        <label htmlFor="allocation">Allocation (%) * </label>
                         <input type="number" value={allocation} name="allocation" onChange={changeValueHandler} required />
                     </div>
                     <div className="form-group">
@@ -133,26 +123,28 @@ const Form = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="checkbox">Contractor is internal</label>
-                        <input type="checkbox" id="checkbox" name="checkbox" /* onClick={checkHandler} */ />
+                        <input type="checkbox" id="checkbox" name="checkbox" onClick={checkboxHandler} />
                     </div>
 
                 </div>
+                {checkbox && (
 
-                <div className="subcontractor-area" id="subcontractor-area" >
-                    <h3>Internal contractor information</h3>
-                    <div>
-                        <label htmlFor="subContractorName">Contractor name </label>
-                        <input type="text" value={subContractorName} className="subContractorName" name="subContractorName" disabled />
+                    <div className="subcontractor-area" id="subcontractor-area" >
+                        <h3>Internal contractor information</h3>
+                        <div className="form-group">
+                            <label htmlFor="subContractorName">Contractor name </label>
+                            <input type="text" value={subContractorName} className="subContractorName" name="subContractorName" disbled />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="price2">Price </label>
+                            <input type="text" value={price2} className="price2" name="price2" disaled required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="otherInfo">Other info</label>
+                            <textarea type="text" value={otherInfo} className="otherInfo" name="otherInfo" required />
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="price2">Price </label>
-                        <input type="text" value={price2} className="price2" name="price2" disabled required />
-                    </div>
-                    <div>
-                        <label htmlFor="otherInfo">Other info</label>
-                        <textarea type="text" value={otherInfo} className="otherInfo" name="otherInfo" disabled required />
-                    </div>
-                </div>
+                )}
 
                 <button type="submit" className="btn send">Send</button>
             </form>
