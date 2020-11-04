@@ -17,12 +17,8 @@ function App() {
           <Route path="/" exact component={Login} /> */}
           <Route path="/home" component={Home} />
           <Route path="/form" component={Form} />
-
-
         </Switch>
-
       </div>
-
     </Router>
   );
 }

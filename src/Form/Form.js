@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import './Form.css'
+import './Form.css';
 
 const Form = () => {
     const [newCard, setNewCard] = useState({
@@ -146,10 +146,46 @@ const Form = () => {
                     </div>
                 )}
 
-                <button type="submit" className="btn send">Send</button>
-            </form>
+        <div className="subcontractor-area" id="subcontractor-area">
+          <h3>Internal sub contractor information</h3>
+          <div>
+            <label htmlFor="subContractorName">Contractor name </label>
+            <input
+              type="text"
+              value={subContractorName}
+              className="subContractorName"
+              name="subContractorName"
+              onChange={changeValueHandler}
+            />
+          </div>
+          <div>
+            <label htmlFor="price2">Price </label>
+            <input
+              type="text"
+              value={price2}
+              className="price2"
+              name="price2"
+              onChange={changeValueHandler}
+            />
+          </div>
+          <div>
+            <label htmlFor="otherInfo">Other info</label>
+            <textarea
+              type="text"
+              value={otherInfo}
+              className="otherInfo"
+              name="otherInfo"
+              onChange={changeValueHandler}
+            />
+          </div>
         </div>
-    );
-}
+
+        <button type="submit" className="btn send">
+          Send
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default Form;
