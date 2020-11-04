@@ -104,7 +104,7 @@ const Form = () => {
                     </div>
                     <div>
                         <label htmlFor="price">Price €/hr </label>
-                        <input type="number" value={price} name="price" onChange={changeValueHandler} />
+                        <input type="number" step=".01" value={price} name="price" onChange={changeValueHandler} />
                     </div>
                     <label htmlFor="allocation">Allocation % </label>
                     <input type="number" value={allocation} name="allocation" onChange={changeValueHandler} />
