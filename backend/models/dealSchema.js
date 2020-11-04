@@ -5,6 +5,7 @@ const DealSchema = new mongoose.Schema(
     date: {
       type: Date,
       default: Date.now(),
+      required: true,
     },
     salesman: {
       type: String,
@@ -47,9 +48,11 @@ const DealSchema = new mongoose.Schema(
 
     subContractorName: {
       type: String,
+      required: true,
     },
     price2: {
       type: Number,
+      required: true,
     },
     otherInfo: {
       type: String,
