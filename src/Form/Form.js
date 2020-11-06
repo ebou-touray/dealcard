@@ -57,11 +57,11 @@ const Form = () => {
         e.preventDefault()
         console.log(newCard)
 
-
         axios.post('/postDeal', newCard)
             .then((response) => {
                 console.log('new card added')
                 console.log(response.data)
+                alert('sent')
 
             }).catch(error => {
                 console.log(error)
@@ -132,16 +132,16 @@ const Form = () => {
                     <div className="subcontractor-area" id="subcontractor-area" >
                         <h3>Internal contractor information</h3>
                         <div className="form-group">
-                            <label htmlFor="subContractorName">Contractor name </label>
-                            <input type="text" value={subContractorName} className="subContractorName" name="subContractorName" disbled />
+                            <label htmlFor="subContractorName">Contractor name * </label>
+                            <input type="text" value={subContractorName} className="subContractorName" name="subContractorName" onChange={changeValueHandler} required />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="price2">Price </label>
-                            <input type="text" value={price2} className="price2" name="price2" disaled required />
+                            <label htmlFor="price2">Price * </label>
+                            <input type="text" value={price2} className="price2" name="price2" onChange={changeValueHandler} required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="otherInfo">Other info</label>
-                            <textarea type="text" value={otherInfo} className="otherInfo" name="otherInfo" required />
+                            <textarea type="text" value={otherInfo} className="otherInfo" name="otherInfo" onChange={changeValueHandler} />
                         </div>
                     </div>
                 )}
