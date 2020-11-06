@@ -29,6 +29,7 @@ module.exports = {
         otherTerms,
         startingDate,
         duration,
+        contactPerson,
         subContractorName,
         price2,
         otherInfo,
@@ -48,6 +49,7 @@ module.exports = {
         otherTerms,
         startingDate,
         duration,
+        contactPerson,
         subContractorName,
         price2,
         otherInfo,
@@ -63,6 +65,26 @@ module.exports = {
         success: false,
         msg: error.message,
       });
+    }
+  },
+
+  //DELETE deals
+  deleteDeals: async (req, res) => {
+    try {
+      await Deal.findByIdAndDelete(req.params.id);
+      res.json({ msg: 'Deleted Deal Successfully' });
+    } catch (error) {
+      return res.status(500).json({ msg: error.message });
+    }
+  },
+
+  //Find note by id
+  findDealsById: async (req, res) => {
+    try {
+      const findDeal = await Deal.findById(req.params.id);
+      res.json(findDeal);
+    } catch (error) {
+      return res.status(500).json({ msg: error.message });
     }
   },
 };

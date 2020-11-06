@@ -46,6 +46,10 @@ const DealSchema = new mongoose.Schema(
       type: String,
     },
 
+    contactPerson: {
+      type: String,
+    },
+
     subContractorName: {
       type: String,
       required: true,
