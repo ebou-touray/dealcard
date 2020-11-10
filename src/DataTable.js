@@ -19,7 +19,7 @@ const DataTable = ({ data, onClick }) => {
             <th scope="col">EndCustomer</th>
             <th scope="col">Price (€/h)</th>
             <th scope="col">PaymentTerms</th>
-            <th scope="col">StartingDate</th>
+            {/*  <th scope="col">StartingDate</th> */}
             <th scope="col">Duration</th>
             <th scope="col"></th>
             <th scope="col"></th>
