@@ -37,7 +37,7 @@ const DataTable = ({ data, onClick }) => {
                 <td>{items.endCustomer}</td>
                 <td>{items.price.toFixed(2)}</td>
                 <td>{items.paymentTerms}</td>
-                <td>{items.startingDate.substring(0, 10)}</td>
+                {/* <td>{items.startingDate.substring(0, 10)}</td> */}
                 <td>{items.duration}</td>
                 <td>
                   <Link to={`/${items._id}`}>

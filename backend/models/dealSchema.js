@@ -52,11 +52,11 @@ const DealSchema = new mongoose.Schema(
 
     subContractorName: {
       type: String,
-      required: true,
+      /*  required: true, */
     },
     price2: {
       type: Number,
-      required: true,
+      /*    required: true, */
     },
     otherInfo: {
       type: String,
