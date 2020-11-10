@@ -13,14 +13,12 @@ const DataTable = ({ data, onClick }) => {
         <thead className="table-light">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Salesman</th>
             <th scope="col">ConsultantName</th>
+            <th scope="col">Salesman</th>
             <th scope="col">Broker</th>
             <th scope="col">EndCustomer</th>
-            <th scope="col">Price (€/h)</th>
             <th scope="col">PaymentTerms</th>
             <th scope="col">StartingDate</th>
-            <th scope="col">Duration</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -30,15 +28,12 @@ const DataTable = ({ data, onClick }) => {
             return (
               <tr key={keys}>
                 <th scope="row">{keys + 1}</th>
-
-                <td>{items.salesman}</td>
                 <td>{items.consultantName}</td>
+                <td>{items.salesman}</td>
                 <td>{items.broker}</td>
                 <td>{items.endCustomer}</td>
-                <td>{items.price.toFixed(2)}</td>
                 <td>{items.paymentTerms}</td>
                 <td>{items.startingDate.substring(0, 10)}</td>
-                <td>{items.duration}</td>
                 <td>
                   <Link to={`/${items._id}`}>
                     <svg
