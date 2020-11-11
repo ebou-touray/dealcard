@@ -27,7 +27,7 @@ const DataTable = ({ data, onClick }) => {
         </thead>
         <tbody>
           {data.map((items, keys) => {
-            startingDate = new Date(items.startingDate).toLocaleDateString('en-GB')
+            startingDate = new Date(items.startingDate).toLocaleDateString('nb-NO')
             return (
               <tr key={keys}>
                 <th scope="row">{keys + 1}</th>

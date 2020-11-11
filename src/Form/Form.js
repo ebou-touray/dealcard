@@ -4,7 +4,7 @@ import './Form.css';
 import { useHistory } from 'react-router-dom';
 
 const Form = () => {
-  let today = new Date().toLocaleDateString('en-GB')
+  let today = new Date().toLocaleDateString('nb-NO')
   const [newCard, setNewCard] = useState({
     date: today,
     salesman: '',

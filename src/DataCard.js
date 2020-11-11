@@ -23,8 +23,8 @@ const DataCard = () => {
     loadDeals();
   }, []);
 
-  creationDate = new Date(dealCard.date).toLocaleDateString('en-GB')
-  startingDate = new Date(dealCard.startingDate).toLocaleDateString('en-GB')
+  creationDate = new Date(dealCard.date).toLocaleDateString('nb-NO')
+  startingDate = new Date(dealCard.startingDate).toLocaleDateString('nb-NO')
 
 
 
