@@ -174,7 +174,7 @@ const Form = () => {
             <div className="form-group">
               <label htmlFor="startingDate">Starting date </label>
               <input
-                type="date"
+                type="text"
                 value={startingDate}
                 name="startingDate"
                 onChange={changeValueHandler}

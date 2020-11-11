@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DataTable = ({ data, onClick }) => {
 
-  let startingDate = undefined;
+  /* let startingDate = undefined; */
   const viewClick = () => console.log('clicked');
   return (
     <div className="table-responsive text-nowrap">
@@ -27,7 +27,7 @@ const DataTable = ({ data, onClick }) => {
         </thead>
         <tbody>
           {data.map((items, keys) => {
-            startingDate = new Date(items.startingDate).toLocaleDateString('nb-NO')
+            /*    startingDate = new Date(items.startingDate).toLocaleDateString('nb-NO') */
             return (
               <tr key={keys}>
                 <th scope="row">{keys + 1}</th>
@@ -36,7 +36,7 @@ const DataTable = ({ data, onClick }) => {
                 <td>{items.broker}</td>
                 <td>{items.endCustomer}</td>
                 <td>{items.paymentTerms}</td>
-                <td>{items.startingDate !== null ? startingDate : ''}</td>
+                <td>{items.startingDate}</td>
                 <td>
                   <Link to={`/${items._id}`}>
                     <svg

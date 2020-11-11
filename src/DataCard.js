@@ -24,9 +24,6 @@ const DataCard = () => {
   }, []);
 
   creationDate = new Date(dealCard.date).toLocaleDateString('nb-NO')
-  startingDate = new Date(dealCard.startingDate).toLocaleDateString('nb-NO')
-
-
 
   return (
     <>
@@ -88,7 +85,7 @@ const DataCard = () => {
                 </li>
                 <li className="list-group-item">
                   <span className="font-weight-bold">Starting Date:</span>{' '}
-                  {dealCard.startingDate !== null ? startingDate : ''}
+                  {dealCard.startingDate}
 
                 </li>
               </ul>
