@@ -18,6 +18,7 @@ const Form = () => {
     duration: '',
     contactPerson: '',
     subContractorName: '',
+    price2: '',
     otherInfo: '',
   });
   const [checkbox, setCheckbox] = useState(false);
