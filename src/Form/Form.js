@@ -18,6 +18,7 @@ const Form = () => {
     duration: '',
     contactPerson: '',
     subContractorName: '',
+    price2: '',
     otherInfo: '',
   });
   const [checkbox, setCheckbox] = useState(false);
@@ -77,7 +78,7 @@ const Form = () => {
           <div className="date-area">
             <label htmlFor="date" id="date">
               {' '}
-              Date:
+              Date *
             </label>
             <input
               type="date"
@@ -168,12 +169,13 @@ const Form = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="startingDate">Starting date </label>
+              <label htmlFor="startingDate">Starting date * </label>
               <input
                 type="date"
                 value={startingDate}
                 name="startingDate"
                 onChange={changeValueHandler}
+                required
               />
             </div>
             <div className="form-group">
