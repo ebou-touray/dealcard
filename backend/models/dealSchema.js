@@ -39,8 +39,7 @@ const DealSchema = new mongoose.Schema(
       type: String,
     },
     startingDate: {
-      type: Date,
-      default: Date.now(),
+      type: Object,
     },
     duration: {
       type: String,
