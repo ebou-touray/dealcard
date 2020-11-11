@@ -36,7 +36,7 @@ const DataTable = ({ data, onClick }) => {
                 <td>{items.broker}</td>
                 <td>{items.endCustomer}</td>
                 <td>{items.paymentTerms}</td>
-                <td>{startingDate}</td>
+                <td>{items.startingDate !== null ? startingDate : ''}</td>
                 <td>
                   <Link to={`/${items._id}`}>
                     <svg

@@ -88,7 +88,8 @@ const DataCard = () => {
                 </li>
                 <li className="list-group-item">
                   <span className="font-weight-bold">Starting Date:</span>{' '}
-                  {startingDate}
+                  {dealCard.startingDate !== null ? startingDate : ''}
+
                 </li>
               </ul>
               <div
