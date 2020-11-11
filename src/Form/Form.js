@@ -4,8 +4,9 @@ import './Form.css';
 import { useHistory } from 'react-router-dom';
 
 const Form = () => {
+  let today = new Date().toLocaleDateString('en-GB')
   const [newCard, setNewCard] = useState({
-    date: '',
+    date: today,
     salesman: '',
     consultantName: '',
     broker: '',
@@ -81,17 +82,13 @@ const Form = () => {
         <form onSubmit={submitHandler}>
           <p>* = information is required</p>
           <div className="date-area">
-            <label htmlFor="date" id="date">
-              {' '}
-              Date *
-            </label>
-            <input
-              type="date"
-              value={date}
+            <label htmlFor="date" id="date"
               name="date"
-              onChange={changeValueHandler}
-              required
-            />
+              value={date}
+              onSubmit={changeValueHandler}>  Date: {date}
+            </label>
+            {' '}
+
             <p> Date when modified</p>
             <label htmlFor="salesman">Salesperson name * </label>
             <input
