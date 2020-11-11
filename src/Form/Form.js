@@ -23,6 +23,7 @@ const Form = () => {
   });
   const [checkbox, setCheckbox] = useState(false);
   const history = useHistory();
+  const [required, setRequired] = useState(false)
 
   let {
     date,
@@ -44,6 +45,8 @@ const Form = () => {
 
   const checkboxHandler = () => {
     setCheckbox(!checkbox);
+    setRequired(true)
+
   };
 
   const changeValueHandler = (e) => {
@@ -217,7 +220,7 @@ const Form = () => {
                   className="subContractorName"
                   name="subContractorName"
                   onChange={changeValueHandler}
-                  required
+                  required={required}
                 />
               </div>
               <div className="form-group">
@@ -228,7 +231,7 @@ const Form = () => {
                   className="price2"
                   name="price2"
                   onChange={changeValueHandler}
-                  required
+                  required={required}
                 />
               </div>
               <div className="form-group">
