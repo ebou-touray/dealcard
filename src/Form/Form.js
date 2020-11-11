@@ -67,11 +67,13 @@ const Form = () => {
         console.log(response.data);
         alert('sent');
         history.push('/');
+
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
 
   return (
     <>
@@ -88,6 +90,7 @@ const Form = () => {
               value={date}
               name="date"
               onChange={changeValueHandler}
+              required
             />
             <p> Date when modified</p>
             <label htmlFor="salesman">Salesperson name * </label>
