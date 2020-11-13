@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const DealSchema = new mongoose.Schema(
   {
     date: {
-      type: Date,
+      type: String,
       default: Date.now(),
       required: true,
     },

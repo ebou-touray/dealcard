@@ -25,6 +25,7 @@ const Form = () => {
   const [checkbox, setCheckbox] = useState(false);
   const history = useHistory();
   const [required, setRequired] = useState(false)
+  const [isDisabled, setDisabled] = useState(false)
 
   let {
     date,
@@ -59,6 +60,7 @@ const Form = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setDisabled(true)
     console.log(newCard);
 
     await axios
@@ -246,7 +248,7 @@ const Form = () => {
             </div>
           )}
 
-          <button type="submit" className="btn send">
+          <button type="submit" className="btn send" disabled={isDisabled}>
             Send
           </button>
         </form>
