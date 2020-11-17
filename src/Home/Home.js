@@ -53,13 +53,18 @@ const Home = () => {
       .toString()
       .toLowerCase()
       .includes(searchInput.toLowerCase());
+    const startDateFilter = item.startingDate
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
 
     return (
       brokerFilter +
       consultantNameFilter +
       endCustomerFilter +
       salesFilter +
-      paymentFilter
+      paymentFilter +
+      startDateFilter
     );
   });
 
