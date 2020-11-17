@@ -124,7 +124,7 @@ module.exports = {
       if (subContractorName) updatedDeals.subContractorName = subContractorName;
       if (price2) updatedDeals.price2 = price2;
       if (otherInfo) updatedDeals.otherInfo = otherInfo;
-      console.log(updatedDeals);
+
       const editDeal = await Deal.findByIdAndUpdate(
         req.params.id,
         {
