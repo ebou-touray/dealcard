@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Home = () => {
   const [dbResult, setDBResult] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
 
   const getData = async () => {
     try {
@@ -27,11 +28,56 @@ const Home = () => {
     }
   };
 
+  const searchHandler = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  var filterDeals = dbResult.filter((item) => {
+    const brokerFilter = item.broker
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    const consultantNameFilter = item.consultantName
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    const endCustomerFilter = item.endCustomer
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    const salesFilter = item.salesman
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    const paymentFilter = item.paymentTerms
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+
+    return (
+      brokerFilter +
+      consultantNameFilter +
+      endCustomerFilter +
+      salesFilter +
+      paymentFilter
+    );
+  });
+
   return (
     <>
       <div className="home-pg">
-        {dbResult.length > 0 && (
-          <DataTable data={dbResult} onClick={deleteDeal} />
+        <div className="search-area">
+          <button className="btn search">Search a card</button>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="search..."
+            onChange={searchHandler}
+            value={searchInput}
+          ></input>
+        </div>
+        {filterDeals.length > 0 && (
+          <DataTable data={filterDeals} onClick={deleteDeal} />
         )}
       </div>
     </>
