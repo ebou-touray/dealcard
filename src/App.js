@@ -4,6 +4,7 @@ import Home from './Home/Home';
 import Form from './Form/Form';
 import NavBar from './NavBar/NavBar';
 import DataCard from './DataCard';
+import EditDeal from './EditDeal';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/form" component={Form} />
+          <Route exact path="/edit/:id" component={EditDeal} />
           <Route path="/:id" component={DataCard} />
         </Switch>
       </div>

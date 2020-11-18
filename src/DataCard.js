@@ -11,9 +11,7 @@ const DataCard = () => {
   const loadDeals = async () => {
     try {
       const res = await axios.get(`/${id}`);
-      console.log(res.data)
       setDealCard(res.data);
-
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +21,7 @@ const DataCard = () => {
     loadDeals();
   }, []);
 
-  creationDate = new Date(dealCard.createdAt).toLocaleDateString('nb-NO')
+  creationDate = dealCard.date;
 
   return (
     <>
@@ -39,8 +37,7 @@ const DataCard = () => {
             <div className="card mx-auto shadow-lg bg-white bg-gradient p-2 rounded">
               <ul className="list-group list-group-flush">
                 <div className="card-header">
-                  <span className="font-weight-bold">Date:</span>{' '}
-                  {creationDate}
+                  <span className="font-weight-bold">Date:</span> {creationDate}
                 </div>
                 <div className="card-header">
                   <span
@@ -86,7 +83,6 @@ const DataCard = () => {
                 <li className="list-group-item">
                   <span className="font-weight-bold">Starting Date:</span>{' '}
                   {dealCard.startingDate}
-
                 </li>
               </ul>
               <div
@@ -100,9 +96,10 @@ const DataCard = () => {
                 {dealCard.subContractorName}
               </div>
               <div className="card-footer">
-                <span className="font-weight-bold" id="price2">Price:</span>{' '}
+                <span className="font-weight-bold" id="price2">
+                  Price:
+                </span>{' '}
                 {dealCard.price2 !== null ? dealCard.price2 + ' €/h' : ''}
-
               </div>
               <div className="card-footer">
                 <span className="font-weight-bold">Other Info:</span>{' '}
