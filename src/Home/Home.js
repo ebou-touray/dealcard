@@ -57,6 +57,14 @@ const Home = () => {
       .toString()
       .toLowerCase()
       .includes(searchInput.toLowerCase());
+    const priceFilter = item.price
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    const subContractorNameFilter = item.subContractorName
+      .toString()
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
 
     return (
       brokerFilter +
@@ -64,26 +72,33 @@ const Home = () => {
       endCustomerFilter +
       salesFilter +
       paymentFilter +
-      startDateFilter
+      startDateFilter +
+      priceFilter +
+      subContractorNameFilter
     );
   });
-
   return (
     <>
       <div className="home-pg">
-        <div className="search-area">
-          <button className="btn search">Search a card</button>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="search..."
-            onChange={searchHandler}
-            value={searchInput}
-          ></input>
+        <div className="container">
+          <div className="pt-4">
+            <input
+              className="d-flex m-0"
+              type="text"
+              placeholder="Search..."
+              onChange={searchHandler}
+              value={searchInput}
+            ></input>
+          </div>
+
+          {filterDeals.length > 0 && (
+            <DataTable
+              data={filterDeals}
+              onClick={deleteDeal}
+              searchInput={searchInput}
+            />
+          )}
         </div>
-        {filterDeals.length > 0 && (
-          <DataTable data={filterDeals} onClick={deleteDeal} />
-        )}
       </div>
     </>
   );
