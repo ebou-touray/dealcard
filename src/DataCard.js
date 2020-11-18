@@ -4,14 +4,16 @@ import axios from 'axios';
 
 const DataCard = () => {
   const [dealCard, setDealCard] = useState([]);
+
   const { id } = useParams();
   let creationDate = undefined;
-  let startingDate = undefined;
+  let updatedDate = null;
 
   const loadDeals = async () => {
     try {
       const res = await axios.get(`/${id}`);
       setDealCard(res.data);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -21,7 +23,8 @@ const DataCard = () => {
     loadDeals();
   }, []);
 
-  creationDate = dealCard.date;
+  creationDate = new Date(dealCard.createdAt).toLocaleDateString('nb-NO');
+  updatedDate = new Date(dealCard.date).toLocaleDateString('nb-NO');
 
   return (
     <>
@@ -37,8 +40,19 @@ const DataCard = () => {
             <div className="card mx-auto shadow-lg bg-white bg-gradient p-2 rounded">
               <ul className="list-group list-group-flush">
                 <div className="card-header">
-                  <span className="font-weight-bold">Date:</span> {creationDate}
+                  <span className="font-weight-bold">Created Date:</span>
+                  {creationDate}
                 </div>
+
+                {updatedDate != 'Invalid Date' ? (
+                  <div className="card-header">
+                    <span className="font-weight-bold">Updated Date: </span>
+                    {updatedDate}
+                  </div>
+                ) : (
+                  ''
+                )}
+
                 <div className="card-header">
                   <span
                     className="font-weight-bold text-uppercase"
