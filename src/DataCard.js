@@ -44,7 +44,7 @@ const DataCard = () => {
                   {creationDate}
                 </div>
 
-                {updatedDate != 'Invalid Date' ? (
+                {updatedDate !== 'Invalid Date' ? (
                   <div className="card-header">
                     <span className="font-weight-bold">Updated Date: </span>
                     {updatedDate}
