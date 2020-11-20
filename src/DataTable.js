@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const DataTable = ({ data, onClick }) => {
+const DataTable = ({ data, onClick, searchInput }) => {
   /* let startingDate = undefined; */
-  const viewClick = () => console.log('clicked');
   return (
     <div className="table-responsive text-nowrap">
-      <table className="table table-sm table-striped table-fixed table-hover caption-top mx-auto">
+      <table className="table table-lg table-striped table-fixed table-hover caption-top">
         <caption className="text-secondary font-weight-bold text-capitalize">
           List of users
         </caption>
@@ -20,6 +19,21 @@ const DataTable = ({ data, onClick }) => {
             <th scope="col">EndCustomer</th>
             <th scope="col">PaymentTerms</th>
             <th scope="col">StartingDate</th>
+            {data.map((items, keys) =>
+              searchInput.includes(items.price) ? (
+                <th scope="col">Price</th>
+              ) : items.subContractorName === '' ? (
+                items.subContractorName === 'null'
+              ) : searchInput
+                  .toLowerCase()
+                  .includes(
+                    items.subContractorName.toString().toLowerCase()
+                  ) ? (
+                <th scope="col">Sub-Contractor Name</th>
+              ) : (
+                ''
+              )
+            )}
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -36,6 +50,19 @@ const DataTable = ({ data, onClick }) => {
                 <td>{items.endCustomer}</td>
                 <td>{items.paymentTerms}</td>
                 <td>{items.startingDate}</td>
+                {data.map((items, keys) =>
+                  searchInput.includes(items.price) ? (
+                    <td>{items.price}</td>
+                  ) : searchInput
+                      .toLowerCase()
+                      .includes(
+                        items.subContractorName.toString().toLowerCase()
+                      ) ? (
+                    <td>{items.subContractorName}</td>
+                  ) : (
+                    ''
+                  )
+                )}
                 <td>
                   <Link to={`/${items._id}`}>
                     <svg
@@ -46,7 +73,6 @@ const DataTable = ({ data, onClick }) => {
                       fill="green"
                       xmlns="http://www.w3.org/2000/svg"
                       cursor="pointer"
-                      onClick={viewClick}
                     >
                       <path
                         fillRule="evenodd"
@@ -67,7 +93,6 @@ const DataTable = ({ data, onClick }) => {
                       className="bi bi-pencil"
                       fill="#eb6123"
                       cursor="pointer"
-                      onClick={viewClick}
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
